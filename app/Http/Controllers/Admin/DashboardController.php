@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Customer;
+use App\Models\review_img;
 use Carbon\Carbon;
 use Session;
 use Toastr;
@@ -83,5 +84,26 @@ class DashboardController extends Controller
         }
         Toastr::error('Failed', 'Your password not match!');
         return back();
+    }
+
+    public function review(){
+        $im = review_img::latest()->get();
+        return view("backEnd.review_add",compact(['im']));
+    }
+
+    public function sub_review(Request $request){
+    $image = $request->file('image');
+    $imageName = time() . '.' . $image->getClientOriginalExtension();
+    $image->move(public_path('frontEnd/images/'), $imageName);
+
+    $d = new review_img();
+    $d->image =  "frontEnd/images/".$imageName;
+    $d->save();
+    return back()->with('success', 'Image uploaded successfully');
+        
+    }
+    public function del($id){
+            $del = review_img::find($id)->delete();
+             return back()->with('success', 'Image delete successfully');
     }
 }

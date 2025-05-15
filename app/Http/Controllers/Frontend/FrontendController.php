@@ -22,6 +22,7 @@ use App\Models\OrderDetails;
 use App\Models\Payment;
 use App\Models\Order;
 use App\Models\Review;
+use App\Models\review_img;
 use Session;
 use Cart;
 use Auth;
@@ -72,8 +73,9 @@ class FrontendController extends Controller
                 return $query;
             });
             $all_p = Product::where(['status' => 1])->get();
+            $rev = review_img::latest()->get();
         // return $homeproducts;
-        return view('frontEnd.layouts.pages.index', compact('sliders', 'frontcategory', 'hotdeal_top', 'hotdeal_bottom', 'homeproducts', 'sliderbottomads', 'footertopads','all_p'));
+        return view('frontEnd.layouts.pages.index', compact('sliders', 'frontcategory', 'hotdeal_top', 'hotdeal_bottom', 'homeproducts', 'sliderbottomads', 'footertopads','all_p','rev'));
     }
 
     public function hotdeals()

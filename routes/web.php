@@ -149,6 +149,9 @@ Route::get('/ajax-product-childcategory', [ProductController::class, 'getChildca
 // auth route
 Route::group(['namespace'=>'Admin','middleware' => ['auth','lock','check_refer'],'prefix'=>'admin'], function() {
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('review', [DashboardController::class, 'review']);
+    Route::post('sub-rev', [DashboardController::class, 'sub_review']);
+    Route::get('rev-image-del/{id}', [DashboardController::class, 'del']);
     Route::get('change-password', [DashboardController::class, 'changepassword'])->name('change_password');
     Route::post('new-password', [DashboardController::class, 'newpassword'])->name('new_password');
 

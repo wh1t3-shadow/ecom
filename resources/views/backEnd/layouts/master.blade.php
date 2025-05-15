@@ -454,6 +454,9 @@
                     <li>
                       <a href="{{route('banners.index')}}"><i data-feather="file-plus"></i> Banner & Ads</a>
                     </li>
+                    <li>
+                      <a href="{{url('admin/review')}}"><i data-feather="file-plus"></i> Review image</a>
+                    </li>
                   </ul>
                 </div>
               </li>

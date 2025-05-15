@@ -300,25 +300,26 @@
                     <div class="row">
                         <div class="col-sm-4 mb-3 mb-sm-0 col-12">
                             <div class="footer-about">
-                                <a href="{{route('home')}}">
+                                <a href="{{route('home')}}" style="text-align: left;">
                                     <img src="{{asset($generalsetting->white_logo)}}" alt="" />
                                 </a>
-                                <p>{{$contact->address}}</p>
-                                <a href="tel:{{$contact->hotline}}" class="footer-hotlint">{{$contact->hotline}}</a>
-                                <div class="footer-menu">
-                                    <ul class="social_link">
+                               <h3 style="text-align: left;color:#ff6700;">For any help you may call us </h3>
+                                <a style="text-align: left;" href="tel:{{$contact->hotline}}" class="footer-hotlint text-right">{{$contact->hotline}}</a>
+                                <div style="text-align: left;" class="footer-menu">
+                                    <ul style="text-align: left;" class="social_link">
                                         @foreach($socialicons as $value)
-                                        <li class="social_list m-0">
-                                            <a class="mobile-social-link" href="{{$value->link}}"><i class="{{$value->icon}}"></i></a>
+                                        <li style="text-align: left;" class="social_list m-0">
+                                            <a style="text-align: left;" class="mobile-social-link" href="{{$value->link}}"><i class="{{$value->icon}}"></i></a>
                                         </li>
                                         @endforeach
                                     </ul>
                                 </div>
+                                 <p style="text-align: left;"  >{{$contact->address}}</p>
                             </div>
                             
                         </div>
                         <!-- col end -->
-                        <div class="col-sm-3 mb-3 mb-sm-0 col-6">
+                        <div class="col-sm-3 mb-3 mb-sm-0 col-12">
                             <div class="footer-menu">
                                 <ul>
                                     <li class="title"><a>Useful Link</a></li>
@@ -332,7 +333,7 @@
                             </div>
                         </div>
                         <!-- col end -->
-                        <div class="col-sm-2 mb-3 mb-sm-0 col-6">
+                        <div class="col-sm-2 mb-3 mb-sm-0 col-12">
                             <div class="footer-menu">
                                 <ul>
                                     <li class="title"><a>Link</a></li>
@@ -375,7 +376,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="copyright">
-                                <p>Copyright © {{ date('Y') }} {{$generalsetting->name}}. All rights reserved | <span style="color: white;">Website Designed by: <a href="https://www.elitedesign.com.bd"><span style="color: white;">Elite Design</span></a></span></p>
+                                <p>Copyright © {{ date('Y') }} {{$generalsetting->name}}. All rights reserved </p>
                             </div>
                         </div>
                     </div>

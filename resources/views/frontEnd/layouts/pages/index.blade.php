@@ -368,6 +368,20 @@
     </div>
 </section>
 
+<div class="container">
+    <h4>Review</h4>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+             <div class="product_sliders owl-carousel">
+                @foreach ($rev as $r)
+                    <img src="{{asset('public/'.$r->image)}}" alt="">
+                @endforeach
+             </div>
+        </div>
+    </div>
+</div>
+
 @endsection @push('script')
 <script src="{{ asset('public/frontEnd/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('public/frontEnd/js/jquery.syotimer.min.js') }}"></script>
