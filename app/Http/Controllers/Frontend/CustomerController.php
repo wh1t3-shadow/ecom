@@ -9,6 +9,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use Intervention\Image\Facades\Image;
 use App\Models\Customer;
 use App\Models\District;
+use App\Models\Product;
 use App\Models\Order;
 use App\Models\ShippingCharge;
 use App\Models\OrderDetails;
@@ -339,8 +340,16 @@ class CustomerController extends Controller
             $order_details->sale_price      =   $cart->price;
             $order_details->qty             =   $cart->qty;
             $order_details->save();
+            
+             $p = Product::find($cart->id);
+             $old_qty = $p->stock;
+             $new_qty = $old_qty - $cart->qty;
+             $p->stock =  $new_qty;
+             $p->save();
         }
        
+   
+
         Cart::instance('shopping')->destroy();
         
         Toastr::success('Thanks, Your order place successfully', 'Success!');

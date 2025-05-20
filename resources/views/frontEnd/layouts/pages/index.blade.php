@@ -14,6 +14,25 @@
 <link rel="stylesheet" href="{{ asset('public/frontEnd/css/owl.carousel.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('public/frontEnd/css/owl.theme.default.min.css') }}" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" rel="stylesheet" />
+<style>
+    .sale-badge1{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        z-index: 9999;
+    }
+    .sale-badge-box1{
+        background-color: black;
+    }
+    .sale-badge-inner1{
+        width: 80px !important;
+        
+    }
+    .p{
+        padding: 2px;
+        text-align: center;
+    }
+</style>
 @endpush @section('content')
 <section class="slider-section">
    
@@ -125,6 +144,19 @@
                                     </div>
                                 </div>
                                 @endif
+
+                                @if ($value->stock < 1)
+                                <div class=" sale-badge1">
+                                    <div class="sale-badge-inner sale-badge-inner1">
+                                        <div class="sale-badge-box1">
+                                            <span class="sale-badge-text">
+                                                <p class="p">Out of stock</p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                               
                                 <div class="pro_img">
                                     <a href="{{ route('product', $value->slug) }}">
                                         <img src="{{ asset($value->image ? $value->image->image : '') }}"
@@ -202,6 +234,18 @@
                                         <div class="sale-badge-box">
                                             <span class="sale-badge-text">
                                                 <p>@php $discount=(((($value->old_price)-($value->new_price))*100) / ($value->old_price)) @endphp {{ number_format($discount, 0) }}% ছাড়</p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+
+                                 @if ($value->stock < 1)
+                                <div class=" sale-badge1">
+                                    <div class="sale-badge-inner sale-badge-inner1">
+                                        <div class="sale-badge-box1">
+                                            <span class="sale-badge-text">
+                                                <p class="p">Out of stock</p>
                                             </span>
                                         </div>
                                     </div>
@@ -305,6 +349,17 @@
                                         <div class="sale-badge-box">
                                             <span class="sale-badge-text">
                                                 <p>@php $discount=(((($value->old_price)-($value->new_price))*100) / ($value->old_price)) @endphp {{ number_format($discount, 0) }}% ছাড়</p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                                 @if ($value->stock < 1)
+                                <div class=" sale-badge1">
+                                    <div class="sale-badge-inner sale-badge-inner1">
+                                        <div class="sale-badge-box1">
+                                            <span class="sale-badge-text">
+                                                <p class="p">Out of stock</p>
                                             </span>
                                         </div>
                                     </div>

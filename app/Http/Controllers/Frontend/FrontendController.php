@@ -52,14 +52,14 @@ class FrontendController extends Controller
 
         $hotdeal_top = Product::where(['status' => 1, 'topsale' => 1])
             ->orderBy('id', 'DESC')
-            ->select('id', 'name', 'slug', 'new_price', 'old_price')
+            ->select('id', 'name', 'slug', 'new_price', 'old_price','stock')
             ->with('prosizes', 'procolors')
             ->limit(12)
             ->get();
         // return $hotdeal_top;
 
         $hotdeal_bottom = Product::where(['status' => 1, 'topsale' => 1])
-            ->select('id', 'name', 'slug', 'new_price', 'old_price')
+            ->select('id', 'name', 'slug', 'new_price', 'old_price','stock')
             ->skip(12)
             ->limit(12)
             ->get();
